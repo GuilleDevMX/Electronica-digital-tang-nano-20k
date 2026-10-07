@@ -3,7 +3,7 @@
 module counter4_tb();
     reg div_clk;
     reg clear;
-    reg up_down_top;
+    reg up_down;
     wire [3:0] cont;
     
     // 1. Variables para el self-check
@@ -12,9 +12,9 @@ module counter4_tb();
     
     // Instanciación del Device Under Test (DUT)
     counter4 dut(
+        .div_clk(div_clk), 
         .reset(clear),
-        .div_clk(div_clk),
-        .up_down(up_down_top),
+        .up_down(up_down),
         .cont(cont)
     );
     
@@ -22,17 +22,18 @@ module counter4_tb();
         // Inicialización
         div_clk = 1'b0;
         clear = 1'b0;
+        up_down = 1'b1;
         error_count = 0;
-        up_down_top = 0;
         expected_cont = 4'd0;
         
         #37;
         clear = 1'b1; // Activa el reset
         #37;
-        clear = ~clear; // Desactiva el reset, comienza a contar
+        clear = 1'b0; // Desactiva el reset, comienza a contar
         
         #1000;
-        up_down_top = ~up_down_top;
+        
+        up_down = ~up_down;
         
         #1000;
         
@@ -52,10 +53,10 @@ module counter4_tb();
         if (clear) begin
             expected_cont <= 4'd0;
         end else begin
-            if (expected_cont == (up_down_top ? 4'd9: 4'd0))
-                expected_cont <= (up_down_top ? 4'd0: 4'd9);
+            if (expected_cont == (up_down ? 4'd9 : 4'd0))
+                expected_cont <= (up_down ? 4'd0 : 4'd9);
             else
-                expected_cont <= expected_cont + (up_down_top ? 1 : -1);
+                expected_cont <= expected_cont + (up_down ? 1'b1: -1'b1);
         end
     end
     integer cc_dut = 0;
@@ -66,7 +67,7 @@ module counter4_tb();
                 $display("[ERROR] Tiempo: %0t | Salida DUT: %d | Esperado: %d", $time, cont, expected_cont);
                 error_count = error_count + 1;
             end
-            else if (cc_dut < 20) begin 
+            else if (cc_dut < 30) begin 
                 $display("[DEBUG] Tiempo: %0t | Salida DUT: %d | Esperado: %d", $time, cont, expected_cont);
                 cc_dut = cc_dut + 1;
             end

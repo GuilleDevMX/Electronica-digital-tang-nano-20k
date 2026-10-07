@@ -15,10 +15,21 @@
 [DEBUG] Tiempo: 570000 | Salida DUT:  3 | Esperado:  3
 [DEBUG] Tiempo: 608000 | Salida DUT:  4 | Esperado:  4
 [DEBUG] Tiempo: 646000 | Salida DUT:  5 | Esperado:  5
-[DEBUG] Tiempo: 684000 | Salida DUT:  4 | Esperado:  4
-[DEBUG] Tiempo: 722000 | Salida DUT:  3 | Esperado:  3
-[DEBUG] Tiempo: 760000 | Salida DUT:  2 | Esperado:  2
-[DEBUG] Tiempo: 798000 | Salida DUT:  1 | Esperado:  1
+[DEBUG] Tiempo: 684000 | Salida DUT:  6 | Esperado:  6
+[DEBUG] Tiempo: 722000 | Salida DUT:  7 | Esperado:  7
+[DEBUG] Tiempo: 760000 | Salida DUT:  8 | Esperado:  8
+[DEBUG] Tiempo: 798000 | Salida DUT:  9 | Esperado:  9
+[DEBUG] Tiempo: 836000 | Salida DUT:  0 | Esperado:  0
+[DEBUG] Tiempo: 874000 | Salida DUT:  1 | Esperado:  1
+[DEBUG] Tiempo: 912000 | Salida DUT:  2 | Esperado:  2
+[DEBUG] Tiempo: 950000 | Salida DUT:  3 | Esperado:  3
+[DEBUG] Tiempo: 988000 | Salida DUT:  4 | Esperado:  4
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'counter4_tb_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 13265.098 ; gain = 8.000 ; free physical = 1783 ; free virtual = 12600
+launch_simulation: Time (s): cpu = 00:00:12 ; elapsed = 00:00:09 . Memory (MB): peak = 10288.641 ; gain = 64.070 ; free physical = 3658 ; free virtual = 14359
+run all
+[DEBUG] Tiempo: 1026000 | Salida DUT:  5 | Esperado:  5
+[DEBUG] Tiempo: 1064000 | Salida DUT:  6 | Esperado:  6
+[DEBUG] Tiempo: 1102000 | Salida DUT:  5 | Esperado:  5
+[DEBUG] Tiempo: 1140000 | Salida DUT:  4 | Esperado:  4
+[DEBUG] Tiempo: 1178000 | Salida DUT:  3 | Esperado:  3

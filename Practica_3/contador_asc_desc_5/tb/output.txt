@@ -1,3 +1,4 @@
+# }
 # run 1000ns
 [DEBUG] Tiempo: 76000 | Salida DUT:  0 | Esperado:  0
 [DEBUG] Tiempo: 114000 | Salida DUT:  1 | Esperado:  1
@@ -21,4 +22,8 @@
 [DEBUG] Tiempo: 798000 | Salida DUT:  1 | Esperado:  1
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'counter4_tb_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 13265.098 ; gain = 8.000 ; free physical = 1783 ; free virtual = 12600
+launch_simulation: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 11539.000 ; gain = 71.816 ; free physical = 2537 ; free virtual = 13309
+run all
+---------------------------------------------------
+>>> SIMULACION EXITOSA: 0 errores encontrados. <<<
+---------------------------------------------------
