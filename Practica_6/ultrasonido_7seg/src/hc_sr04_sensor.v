@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-
 module hc_sr04_sensor (
     input clk,
     input rst,
@@ -15,18 +14,21 @@ module hc_sr04_sensor (
                COUNT_ECHO = 2'b10;
 
     reg [1:0] state;
-    reg [8:0] trig_counter; // Contador para 270 ciclos (10 us)
-    reg [10:0] cm_counter;  // Contador para 1566 ciclos (58 us = 1 cm)
+    reg [8:0] trig_counter; 
+    reg [10:0] cm_counter;  
+    
+    reg [9:0] temp_distance; 
 
     assign ready = (state == IDLE);
 
-    always @(posedge clk, posedge rst) begin
+    always @(posedge clk or posedge rst) begin
         if (rst) begin
             state <= IDLE;
             trig <= 0;
             trig_counter <= 0;
             cm_counter <= 0;
             distance_cm <= 0;
+            temp_distance <= 0;
         end else begin
             case (state)
                 IDLE: begin
@@ -34,7 +36,7 @@ module hc_sr04_sensor (
                     if (measure) begin
                         state <= TRIGGER;
                         trig_counter <= 0;
-                        distance_cm <= 0;
+                        temp_distance <= 0;
                     end
                 end
                 TRIGGER: begin
@@ -54,16 +56,16 @@ module hc_sr04_sensor (
                     if (echo) begin
                         if (cm_counter == 11'd1565) begin 
                             cm_counter <= 0;
-                            distance_cm <= distance_cm + 1;
+                            temp_distance <= temp_distance + 1; 
                         end else begin
                             cm_counter <= cm_counter + 1;
                         end
                     end else begin
+                        distance_cm <= temp_distance; 
                         state <= IDLE;
                     end
                 end
             endcase
-            
         end
     end
 endmodule

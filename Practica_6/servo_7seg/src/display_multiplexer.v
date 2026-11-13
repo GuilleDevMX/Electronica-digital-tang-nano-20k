@@ -24,10 +24,10 @@ module display_multiplexer (
     // Mux
     always @(*) begin
         case(mux_sel)
-            2'b00: begin sel_dig_internal = 4'b0001; current_bcd = data[15:12]; dp = dp_in[3]; end
-            2'b01: begin sel_dig_internal = 4'b0010; current_bcd = data[11:8]; dp = dp_in[2]; end
-            2'b10: begin sel_dig_internal = 4'b0100; current_bcd = data[7:4]; dp = dp_in[1]; end
-            2'b11: begin sel_dig_internal = 4'b1000; current_bcd = data[3:0]; dp = dp_in[0]; end
+            2'b00: begin sel_dig_internal = 4'b0001; current_bcd = data[3:0]; dp = dp_in[0]; end
+            2'b01: begin sel_dig_internal = 4'b0010; current_bcd = data[7:4]; dp = dp_in[1]; end
+            2'b10: begin sel_dig_internal = 4'b0100; current_bcd = data[11:8]; dp = dp_in[2]; end
+            2'b11: begin sel_dig_internal = 4'b1000; current_bcd = data[15:12]; dp = dp_in[3]; end
             default: begin sel_dig_internal = 4'b0000; current_bcd = 4'b0000; dp = 1'b0; end
         endcase
     end

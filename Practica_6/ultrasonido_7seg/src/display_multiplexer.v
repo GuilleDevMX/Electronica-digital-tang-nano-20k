@@ -62,12 +62,12 @@ module bcd_to_7seg (
             4'h7: seg = 7'b0000111; 
             4'h8: seg = 7'b1111111; 
             4'h9: seg = 7'b1101111;
-//            4'hA: seg = 7'b1110111; // Extra set to Hex
-//            4'hB: seg = 7'b1111100;
-//            4'hC: seg = 7'b0111001;
-//            4'hD: seg = 7'b1011110;
-//            4'hE: seg = 7'b1111001;
-//            4'hF: seg = 7'b1110001;
+            4'hA: seg = 7'b1110111; // Extra set to Hex
+            4'hB: seg = 7'b1111100;
+            4'hC: seg = 7'b0111001;
+            4'hD: seg = 7'b1011110;
+            4'hE: seg = 7'b1111001;
+            4'hF: seg = 7'b1110001;
             default: seg = 7'b0000000; // Turn all to off
         endcase
     end

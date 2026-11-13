@@ -4,7 +4,7 @@ module counter (clk, reset, delay_clk);
 
 input clk;
 input reset;
-output reg[19:0]delay_clk = 0; //540000d
+output reg[19:0]delay_clk = 0;
 
 always@(posedge reset,posedge clk) begin
     if(reset)
